@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/brain.js" defer></script>
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="heading">
+            <h2>Test piłkarza</h2>
+            <p>sprawdź czy piłkarz o podanych statystykach jest dobry</p>
+            <p>Wpisz wartość w zakresie od 0 do 100</p>
+        </div>
+        <div class="bottom">
+            <div class="bottom-box">
+                <label for="speed">Szybkość</label>
+                <input type="number" id="speed">
+            </div>
+            <div class="bottom-box">
+                <label for="condition">Kondycja</label>
+                <input type="number" id="condition">
+            </div>
+            <div class="bottom-box">
+                <label for="shoot">Strzały</label>
+                <input type="number" id="shoot">
+            </div>
+            <div class="bottom-box">
+                <label for="physic">Fizyczność</label>
+                <input type="number" id="physic">
+            </div>
+        </div>
+        <div class="button-box">
+            <button class="show">Sprawdź</button>
+        </div>
+        <p class="answer"></p>
+    </div>
+</body>
+
+</html>
