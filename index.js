@@ -3,17 +3,17 @@ const net = new brain.NeuralNetwork();
 //dane w tablicy = [speed, shoot, condition, physic]
 
 const data = [
-	{ input: [0, 0, 0, 0], output: [0] },
-	{ input: [10, 10, 10, 10], output: [0] },
-	{ input: [20, 20, 20, 20], output: [0] },
-	{ input: [30, 30, 30, 30], output: [0] },
-	{ input: [40, 40, 40, 40], output: [0] },
-	{ input: [50, 50, 50, 50], output: [0] },
-	{ input: [60, 60, 60, 60], output: [1] },
-	{ input: [70, 70, 70, 70], output: [1] },
-	{ input: [80, 80, 80, 80], output: [1] },
-	{ input: [90, 90, 90, 90], output: [1] },
-	{ input: [100, 100, 100, 100], output: [1] },
+	{ input: [0, 0, 0, 0], output: {bad:1} },
+	{ input: [10/100, 10/100, 10/100, 10/100], output: {bad:1} },
+	{ input: [20/100, 20/100, 20/100, 20/100], output: {bad:1} },
+	{ input: [30/100, 30/100, 30/100, 30/100], output: {bad:1} },
+	{ input: [40/100, 40/100, 40/100, 40/100], output: {bad:1} },
+	{ input: [50/100, 50/100, 50/100, 50/100], output: {bad:1} },
+	{ input: [60/100, 60/100, 60/100, 60/100], output: {good:1} },
+	{ input: [70/100, 70/100, 70/100, 70/100], output: {good:1} },
+	{ input: [80/100, 80/100, 80/100, 80/100], output: {good:1} },
+	{ input: [90/100, 90/100, 90/100, 90/100], output: {good:1} },
+	{ input: [100/100, 100/100, 100/100, 100/100], output: {good:1} },
 ];
 
 net.train(data);
@@ -42,11 +42,11 @@ showBtn.addEventListener("click", () => {
 		return false;
 	}
 
-	newStatistics = [speed.value, shoot.value, condition.value, physic.value];
-	const guess = net.run(newStatistics)[0];
+	//newStatistics = [speed.value/100, shoot.value/100, condition.value/100, physic.value/100];
+	let guess = net.run([speed.value/100, shoot.value/100, condition.value/100, physic.value/100]);
 	console.log(guess);
 
-	if (guess < 0.5) {
+	if (guess["good"] < 0.5) {
 		answer.textContent = "Piłkarz jest słaby";
 		// data.push({ input: newStatistics, output: [0] });
 	} else {
